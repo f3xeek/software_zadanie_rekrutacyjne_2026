@@ -1,0 +1,22 @@
+services:
+  proxy:
+    build: ./proxy
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "3001:3001"
+      - "3000:3000"
+    networks:
+      - test-network
+    restart: unless-stopped
+
+  rocket-tcp:
+    build: ./rocket
+    networks:
+      - test-network
+    restart: unless-stopped
+    depends_on:
+      - proxy
+networks:
+  test-network:
+    driver: bridge
