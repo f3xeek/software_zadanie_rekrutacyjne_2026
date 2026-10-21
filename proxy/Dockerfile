@@ -7,5 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-
 CMD ["python", "tcp_proxy.py", "--tcp-address=0.0.0.0"]
