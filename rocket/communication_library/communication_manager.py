@@ -163,7 +163,7 @@ class CommunicationManager:
         for source in BoardID:
             if source == BoardID.LAST_BOARD:
                 break
-            if source not in (BoardID.BROADCAST, BoardID.GRAZYNA):
+            if source != BoardID.BROADCAST:
                 frame_kwargs['source'] = source
                 callback_keys.append(Frame(**frame_kwargs))
         return callback_keys
